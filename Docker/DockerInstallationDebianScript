@@ -61,18 +61,7 @@ done
 
 
 argSelector(){
-for arg in "$@"; do
-    if [[ "$arg" == "remove" ]]; then
-        echo ""
-        echo "removing docker initialized ..."
-        sleep 1
-        sudo apt autoremove -y docker-ce docker-ce-cli
-    elif [[ "$arg" == "-h" || "$arg" == "--help" ]]; then
-        showHelp
-    else
-        echo "enter -h or --help for help menu."
-    fi
-done
+
 }
 
 
@@ -84,5 +73,16 @@ if [ "$#" -lt 1 ]; then
         installDocker
     fi
 else
-    argSelector
+    for arg in "$@"; do
+        if [[ "$arg" == "remove" ]]; then
+            echo ""
+            echo "removing docker initialized ..."
+            sleep 1
+            sudo apt autoremove -y docker-ce docker-ce-cli
+        elif [[ "$arg" == "-h" || "$arg" == "--help" ]]; then
+            showHelp
+        else
+            echo "enter -h or --help for help menu."
+        fi
+    done
 fi
