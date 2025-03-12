@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ "$#" -eq 0 ]; then
-    if dpkg -l | grep -q "^ii  docker-ce; then
+    if dpkg -l | grep -q "^ii  docker-ce"; then
         echo "docker-ce is already installed."
     else
         echo ""
