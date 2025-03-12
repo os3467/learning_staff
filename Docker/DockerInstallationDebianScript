@@ -1,79 +1,88 @@
 #!/bin/bash
 
-showHelp() {
+showHelp(){
 echo "Help:"
 echo "remove            removes the docker"
 }
+
+installDocker(){
+echo ""
+echo "Installing docker for debian ..."
+echo ""
+sleep 2
+
+sudo apt-get update
+echo ""
+sleep 1
+sudo apt-get install ca-certificates curl
+echo ""
+sleep 1
+sudo install -m 0755 -d /etc/apt/keyrings
+echo ""
+sleep 1
+sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+echo ""
+sleep 1
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+echo ""
+sleep 1
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+echo ""
+sleep 1
+sudo apt-get update
+echo ""
+sleep 1
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+echo ""
+sleep 1
+docker --version
+echo ""
+
+echo -n "do you want to run hello-world container? (y/n) "
+read answer
+while true; do
+    if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
+        echo "Sure, running docker command..."
+        sudo docker run hello-world
+        break
+    elif [[ "$answer" == "n" || "$answer" == "N" ]]; then
+        echo "Sure, good luck then ;)"
+        break
+    else
+        echo "invalid input entered, please try again..."
+    fi
+done
+}
+
+
+argSelector(){
+for arg in "$@"; do
+    if [[ "$arg" == "remove" ]]; then
+        echo ""
+        echo "removing docker initialized ..."
+        sleep 1
+        sudo apt autoremove -y docker-ce docker-ce-cli
+    elif [[ "$arg" == "-h" || "$arg" == "--help" ]]; then
+        showHelp
+    else
+        echo "enter -h or --help for help menu."
+    fi
+done
+}
+
+
 
 if [ "$#" -lt 1 ]; then
     if dpkg -l | grep -q "^ii  docker-ce"; then
         echo "docker-ce is already installed."
     else
-        echo ""
-        echo "Installing docker for debian ..."
-        echo ""
-        sleep 2
-        
-        sudo apt-get update
-        echo ""
-        sleep 1
-        sudo apt-get install ca-certificates curl
-        echo ""
-        sleep 1
-        sudo install -m 0755 -d /etc/apt/keyrings
-        echo ""
-        sleep 1
-        sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
-        echo ""
-        sleep 1
-        sudo chmod a+r /etc/apt/keyrings/docker.asc
-        echo ""
-        sleep 1
-        
-        echo \
-          "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
-          $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-          sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-        
-        echo ""
-        sleep 1
-        sudo apt-get update
-        echo ""
-        sleep 1
-        sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-        echo ""
-        sleep 1
-        docker --version
-        echo ""
-
-
-        echo ""
-        echo -n "do you want to run hello-world container? (y/n) "
-        read answer
-        while true; do
-            if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
-                echo "Sure, running docker command..."
-                sudo docker run hello-world
-                break
-            elif [[ "$answer" == "n" || "$answer" == "N" ]]; then
-                echo "Sure, good luck then ;)"
-                break
-            else
-                echo "invalid input entered, please try again..."
-            fi
-        done
+        installDocker
     fi
 else
-    for arg in "$@"; do
-        if [[ "$arg" == "remove" ]]; then
-            echo ""
-            echo "removing docker initialized ..."
-            sleep 1
-            sudo apt autoremove -y docker-ce docker-ce-cli
-        elif [[ "$arg" == "-h" || "$arg" == "--help" ]]; then
-            showHelp
-        else
-            echo "enter -h or --help for help menu."
-        fi
-    done
+    argSelector
 fi
