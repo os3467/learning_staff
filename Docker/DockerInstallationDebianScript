@@ -45,9 +45,9 @@ sleep 1
 docker --version
 echo ""
 
+while true; do
 echo -n "do you want to run hello-world container? (y/n) "
 read answer
-while true; do
     if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
         echo "Sure, running docker command..."
         sudo docker run hello-world
