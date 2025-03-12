@@ -49,8 +49,10 @@ if [ "$#" -eq 0 ]; then
             if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
                 echo "Sure, running docker command..."
                 sudo docker run hello-world
+                break
             elif [[ "$answer" == "n" || "$answer" == "N" ]]; then
                 echo "Sure, good luck then ;)"
+                break
             else
                 echo "invalid input entered, please try again..."
             fi
