@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "$#" -eq 0 ]; then
+if [ "$#" -lt 1 ]; then
     if dpkg -l | grep -q "^ii  docker-ce"; then
         echo "docker-ce is already installed."
     else
@@ -58,13 +58,12 @@ if [ "$#" -eq 0 ]; then
             fi
         done
     fi
-#else_argument_check
+else
+    for arg in "$@"; do
+        if [ "$arg" == "remove" ]; then
+            echo ""
+            echo "removing docker initialized ..."
+            sleep 1
+            sudo apt autoremove -y docker-ce docker-ce-cli
+    done
 fi
-
-
-  
-
-
-
-
-
