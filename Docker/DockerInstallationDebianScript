@@ -65,5 +65,6 @@ else
             echo "removing docker initialized ..."
             sleep 1
             sudo apt autoremove -y docker-ce docker-ce-cli
+        fi
     done
 fi
