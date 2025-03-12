@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Check if the user provided a package name
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 package_name"
+    exit 1
+fi
+
+PACKAGE_NAME=$1
+
+# Check if the package is already installed
+if dpkg -l | grep -q "^ii  $PACKAGE_NAME"; then
+    echo "$PACKAGE_NAME is already installed."
+else
+    echo "$PACKAGE_NAME is NOT installed."
+fi
