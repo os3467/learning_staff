@@ -43,7 +43,7 @@ if [ "$#" -lt 1 ]; then
 
 
         echo ""
-        echo -n "do you want to run hello-world container? (y/n)"
+        echo -n "do you want to run hello-world container? (y/n) "
         read answer
         while true; do
             if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
