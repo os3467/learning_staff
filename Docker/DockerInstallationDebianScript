@@ -1,9 +1,11 @@
 #!/bin/bash
 
+
 showHelp(){
 echo "Help:"
 echo "remove            removes the docker"
 }
+
 
 installDocker(){
 echo ""
@@ -59,10 +61,6 @@ while true; do
 done
 }
 
-
-argSelector(){
-
-}
 
 
 
