@@ -1,6 +1,6 @@
 Hi
 
-```
+```python
 def reverseText(text):
     words = text.split()
     return " ".join(reversed(words))
