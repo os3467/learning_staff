@@ -1,5 +1,10 @@
 #!/bin/bash
 
+showHelp() {
+echo "Help:"
+echo "remove            removes the docker"
+}
+
 if [ "$#" -lt 1 ]; then
     if dpkg -l | grep -q "^ii  docker-ce"; then
         echo "docker-ce is already installed."
@@ -60,11 +65,15 @@ if [ "$#" -lt 1 ]; then
     fi
 else
     for arg in "$@"; do
-        if [ "$arg" == "remove" ]; then
+        if [[ "$arg" == "remove" ]]; then
             echo ""
             echo "removing docker initialized ..."
             sleep 1
             sudo apt autoremove -y docker-ce docker-ce-cli
+        elif [[ "$arg" == "-h" || "$arg" == "--help" ]]; then
+            showHelp
+        else
+            echo "enter -h or --help for help menu."
         fi
     done
 fi
