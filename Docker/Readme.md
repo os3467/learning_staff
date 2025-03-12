@@ -1,6 +1,6 @@
 Hi
 
-'''python
+```
 def reverseText(text):
     words = text.split()
     return " ".join(reversed(words))
@@ -11,4 +11,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-'''
+```
