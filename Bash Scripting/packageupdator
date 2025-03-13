@@ -77,6 +77,18 @@ update_upgrade_pkg() {
     sudo slackpkg update && sudo slackpkg upgrade-all
 }
 
+# Function to update and upgrade APK packages (Alpine Linux)
+update_upgrade_apk() {
+    echo "APK found !"
+    echo ""
+    sleep 1
+    echo "Updating and upgrading APK packages..."
+    echo ""
+    sleep 1
+    sudo apk update && sudo apk upgrade
+}
+
+
 
 
 # Main function to detect and call the appropriate update/upgrade function
@@ -95,6 +107,8 @@ update_upgrade_packages() {
         update_upgrade_portage
     elif command -v slackpkg &> /dev/null; then
         update_upgrade_pkg
+    elif command -v apk &> /dev/null; then
+        update_upgrade_apk
     else
         echo "No known package manager found. Cannot update or upgrade packages."
         echo ""
