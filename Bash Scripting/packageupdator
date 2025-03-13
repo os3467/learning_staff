@@ -97,6 +97,7 @@ update_upgrade_packages() {
         update_upgrade_pkg
     else
         echo "No known package manager found. Cannot update or upgrade packages."
+        echo ""
     fi
 }
 
