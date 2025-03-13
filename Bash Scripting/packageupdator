@@ -1,0 +1,108 @@
+#!/bin/bash
+
+# Function to update and upgrade APT packages
+update_upgrade_apt() {
+    echo ""
+    echo "APT found !"
+    echo ""
+    sleep 1
+    echo "Updating and upgrading APT packages..."
+    sleep 1
+    sudo apt update && sudo apt upgrade -y
+}
+
+# Function to update and upgrade YUM packages
+update_upgrade_yum() {
+    echo ""
+    echo "YUM found !"
+    echo ""
+    sleep 1
+    echo "Updating and upgrading YUM packages..."
+    sleep 1
+    sudo yum update -y
+}
+
+# Function to update and upgrade DNF packages
+update_upgrade_dnf() {
+    echo ""
+    echo "DNF found !"
+    echo ""
+    sleep 1
+    echo "Updating and upgrading DNF packages..."
+    sleep 1
+    sudo dnf upgrade --refresh -y
+}
+
+# Function to update and upgrade Pacman packages
+update_upgrade_pacman() {
+    echo ""
+    echo "Pacman found !"
+    echo ""
+    sleep 1
+    echo "Updating and upgrading Pacman packages..."
+    sleep 1
+    sudo pacman -Syu --noconfirm
+}
+
+# Function to update and upgrade Zypper packages
+update_upgrade_zypper() {
+    echo ""
+    echo "Zypper found !"
+    echo ""
+    sleep 1
+    echo "Updating and upgrading Zypper packages..."
+    sleep 1
+    sudo zypper refresh && sudo zypper update -y
+}
+
+# Function to update and upgrade Portage packages
+update_upgrade_portage() {
+    echo ""
+    echo "Portage found !"
+    echo ""
+    sleep 1
+    echo "Updating and upgrading Portage packages..."
+    sleep 1
+    sudo emerge --sync && sudo emerge --update --deep --newuse @world
+}
+
+# Function to update and upgrade pkg packages (Slackware)
+update_upgrade_pkg() {
+    echo ""
+    echo "pkg found !"
+    echo ""
+    sleep 1
+    echo "Updating and upgrading pkg packages..."
+    sleep 1
+    sudo slackpkg update && sudo slackpkg upgrade-all
+}
+
+
+
+# Main function to detect and call the appropriate update/upgrade function
+update_upgrade_packages() {
+    if command -v apt &> /dev/null; then
+        update_upgrade_apt
+    elif command -v yum &> /dev/null; then
+        update_upgrade_yum
+    elif command -v dnf &> /dev/null; then
+        update_upgrade_dnf
+    elif command -v pacman &> /dev/null; then
+        update_upgrade_pacman
+    elif command -v zypper &> /dev/null; then
+        update_upgrade_zypper
+    elif command -v emerge &> /dev/null; then
+        update_upgrade_portage
+    elif command -v slackpkg &> /dev/null; then
+        update_upgrade_pkg
+    else
+        echo "No known package manager found. Cannot update or upgrade packages."
+    fi
+}
+
+# Call the main function
+echo ""
+echo "Finding system package manager ..."
+echo ""
+sleep 1
+update_upgrade_packages
