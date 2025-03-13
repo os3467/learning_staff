@@ -2,77 +2,77 @@
 
 # Function to update and upgrade APT packages
 update_upgrade_apt() {
-    echo ""
     echo "APT found !"
     echo ""
     sleep 1
     echo "Updating and upgrading APT packages..."
+    echo ""
     sleep 1
     sudo apt update && sudo apt upgrade -y
 }
 
 # Function to update and upgrade YUM packages
 update_upgrade_yum() {
-    echo ""
     echo "YUM found !"
     echo ""
     sleep 1
     echo "Updating and upgrading YUM packages..."
+    echo ""
     sleep 1
     sudo yum update -y
 }
 
 # Function to update and upgrade DNF packages
 update_upgrade_dnf() {
-    echo ""
     echo "DNF found !"
     echo ""
     sleep 1
     echo "Updating and upgrading DNF packages..."
+    echo ""
     sleep 1
     sudo dnf upgrade --refresh -y
 }
 
 # Function to update and upgrade Pacman packages
 update_upgrade_pacman() {
-    echo ""
     echo "Pacman found !"
     echo ""
     sleep 1
     echo "Updating and upgrading Pacman packages..."
+    echo ""
     sleep 1
     sudo pacman -Syu --noconfirm
 }
 
 # Function to update and upgrade Zypper packages
 update_upgrade_zypper() {
-    echo ""
     echo "Zypper found !"
     echo ""
     sleep 1
     echo "Updating and upgrading Zypper packages..."
+    echo ""
     sleep 1
     sudo zypper refresh && sudo zypper update -y
 }
 
 # Function to update and upgrade Portage packages
 update_upgrade_portage() {
-    echo ""
     echo "Portage found !"
     echo ""
     sleep 1
     echo "Updating and upgrading Portage packages..."
+    echo ""
     sleep 1
     sudo emerge --sync && sudo emerge --update --deep --newuse @world
 }
 
 # Function to update and upgrade pkg packages (Slackware)
 update_upgrade_pkg() {
-    echo ""
     echo "pkg found !"
     echo ""
     sleep 1
     echo "Updating and upgrading pkg packages..."
+    echo ""
     sleep 1
     sudo slackpkg update && sudo slackpkg upgrade-all
 }
