@@ -51,11 +51,13 @@ echo ""
     if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
         echo "Sure, running docker command..."
         echo ""
+        sleep 1
         sudo docker run hello-world
         break
     elif [[ "$answer" == "n" || "$answer" == "N" ]]; then
         echo "Sure, good luck then ;)"
         echo ""
+        sleep 1
         break
     else
         echo ""
