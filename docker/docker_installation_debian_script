@@ -74,9 +74,11 @@ echo ""
 echo ""
 if dpkg -l | grep -q "^ii  docker-ce"; then
         echo "removing encountered problems !!!"
+        echo ""
         sleep 2
     else
         echo "docker removed successfully."
+        echo ""
         sleep 2
 fi
 }
