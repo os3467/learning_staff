@@ -1,45 +1,46 @@
-# Show date and time
+### Show date and time
 ```
 date
 ```
 
-# Show free memory and disk
+### Show free memory and disk
 ```
 free
 ```
 
-# Show free disk
+### Show free disk
 ```
 df
 ```
 
-# Show current directory
+### Show current directory
 ```
 pwd
 ```
 it stands for print working directory
 
-# Show contents of current directory
+
+### Show contents of current directory
 ```
 ls
 ```
 
-# Change the directory
+### Change the directory
 ```
 cd
 ```
 
-# Create a file
+### Create a file
 ```
 touch
 ```
 
-# Gives more information about the given file
+### Gives more information about the given file
 ```
 file
 ```
 
-
+###
 
 
 
