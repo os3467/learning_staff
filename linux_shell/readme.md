@@ -1,10 +1,17 @@
-Show date and time
+#Show date and time
 ```
 date
 ```
 
-Show free memory and space
+#Show free memory and disk
 ```
 free
 ```
+
+#Show free disk
+```
+df
+```
+
+
 
