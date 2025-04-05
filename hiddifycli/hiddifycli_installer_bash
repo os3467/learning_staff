@@ -9,11 +9,12 @@ echo "Extracting from tar.gz"
 sleep 2
 echo ""
 tar -xvzf hiddify-cli-linux-amd64.tar.gz
+rm hiddify-cli-linux-amd64.tar.gz
 echo ""
-echo "Copying HiddifyCli to /usr/bin"
+echo "Moving HiddifyCli to /usr/bin"
 echo ""
 sleep 2
-sudo cp HiddifyCli /usr/bin/
+sudo mv HiddifyCli /usr/bin/
 chmod +x /usr/bin/HiddifyCli
 echo ""
 echo ""
@@ -24,7 +25,8 @@ echo ""
 sleep 2
 echo "Now put your vless or vmess server link into server.txt and run bash_start using bash"
 echo ""
-sleep 3
+echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+sleep 6
 echo ""
 
 
