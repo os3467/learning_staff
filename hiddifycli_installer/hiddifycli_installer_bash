@@ -1,0 +1,30 @@
+!#/bin/bash
+echo ""
+echo "Downloading HiddifyCli from Github"
+echo ""
+sleep 2
+wget https://github.com/hiddify/hiddify-core/releases/download/v3.1.8/hiddify-cli-linux-amd64.tar.gz
+echo ""
+echo "Extracting from tar.gz"
+sleep 2
+echo ""
+tar -xvzf hiddify-cli-linux-amd64.tar.gz
+echo ""
+echo "Copying HiddifyCli to /usr/bin"
+echo ""
+sleep 2
+sudo cp HiddifyCli /usr/bin/
+chmod +x /usr/bin/HiddifyCli
+echo ""
+echo ""
+touch server.txt
+echo "sudo HiddifyCli run -c ./server.txt -d ./conf.json" > bash_start
+
+echo "Done"
+echo ""
+sleep 3
+echo "Now put your vless or vmess server link into server.txt and run bash_start using bash"
+
+
+
+
