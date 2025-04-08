@@ -31,6 +31,8 @@ opkg update
 opkg install luci-app-passwall2
 #opkg install v2ray-geosite-ir
 
+echo ""
 echo "Done"
 echo ""
 sleep 5
+reboot
