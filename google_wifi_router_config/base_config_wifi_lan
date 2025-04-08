@@ -2,12 +2,6 @@
 
 echo ""
 echo ""
-echo "Changing admin password..."
-echo ""
-passwd
-
-echo ""
-echo ""
 echo -n "Please Enter Wifi name (ssid) : "
 read ssid
 echo ""
