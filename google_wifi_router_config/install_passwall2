@@ -36,6 +36,9 @@ echo "Done"
 echo ""
 sleep 5
 
+uci del passwall2.cfg065fd7.show_node_info
+uci del passwall2.myshunt
+
 uci del passwall2.myshunt.DirectGame
 uci del passwall2.DirectGame
 uci del passwall2.myshunt.ProxyGame
