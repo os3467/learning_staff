@@ -3,6 +3,7 @@
 echo ""
 echo ""
 echo "Changing admin password..."
+echo ""
 passwd
 
 echo ""
