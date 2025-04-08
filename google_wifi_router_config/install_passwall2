@@ -1,0 +1,38 @@
+#!/bin/bash
+
+opkg update
+
+opkg install bash
+
+opkg list-upgradable | cut -f 1 -d ' ' | xargs -r opkg upgrade
+
+opkg remove dnsmasq
+
+opkg install dnsmasq-full
+
+opkg install kmod-nft-tproxy kmod-nft-socket
+
+wget -O passwall.pub https://master.dl.sourceforge.net/project/openwrt-passwall-build/passwall.pub
+
+opkg-key add passwall.pub
+rm passwall.pub
+
+echo "read release arch << EOF" > tmp
+echo "\$(. /etc/openwrt_release ; echo \${DISTRIB_RELEASE%.*} \$DISTRIB_ARCH)" >> tmp
+echo "EOF" >> tmp
+echo "" >> tmp
+echo "for feed in passwall_packages passwall2; do" >> tmp
+echo " echo \"src/gz \$feed https://master.dl.sourceforge.net/project/openwrt-passwall-build/releases/packages-\$release/\$arch/\$feed\" >> /etc/opkg/customfeeds.conf" >> tmp
+echo "done" >> tmp
+
+bash tmp
+rm tmp
+
+opkg update
+
+opkg install luci-app-passwall2
+#opkg install v2ray-geosite-ir
+
+echo "Done"
+echo ""
+sleep 5
