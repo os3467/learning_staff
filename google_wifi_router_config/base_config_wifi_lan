@@ -31,5 +31,10 @@ uci set wireless.radio1.disabled='0'
 uci commit wireless
 wifi reload
 
+echo ""
+echo ""
+echo "Modem ip address will be change to 192.168.40.1 in 10 seconds..."
+echo "Please reboot to take effect or cancel with Control+C "
+sleep 10
 
 uci set network.lan.ipaddr='192.168.40.1'
