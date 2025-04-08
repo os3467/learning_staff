@@ -12,16 +12,16 @@ echo ""
 #config wifi 2.4g
 uci del wireless.radio0.htmode
 uci set wireless.radio0.cell_density='0'
-uci set wireless.default_radio0.ssid=$ssid
+uci set wireless.default_radio0.ssid="$ssid"
 uci set wireless.default_radio0.encryption='sae-mixed'
-uci set wireless.default_radio0.key=$wifipass
+uci set wireless.default_radio0.key="$wifipass"
 uci set wireless.default_radio0.ocv='0'
 
 #config wifi 5g
 uci set wireless.radio1.cell_density='0'
-uci set wireless.default_radio1.ssid=$ssid
+uci set wireless.default_radio1.ssid="$ssid"
 uci set wireless.default_radio1.encryption='sae-mixed'
-uci set wireless.default_radio1.key=$wifipass
+uci set wireless.default_radio1.key="$wifipass"
 uci set wireless.default_radio1.ocv='0'
 
 #activating wifis
