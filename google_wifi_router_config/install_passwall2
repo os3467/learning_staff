@@ -2,8 +2,6 @@
 
 opkg update
 
-opkg install bash
-
 opkg list-upgradable | cut -f 1 -d ' ' | xargs -r opkg upgrade
 
 opkg remove dnsmasq
