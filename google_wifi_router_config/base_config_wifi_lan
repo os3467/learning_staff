@@ -1,0 +1,35 @@
+#!/bin/bash
+
+echo ""
+echo ""
+echo -n "Please Enter Wifi name (ssid) : "
+read ssid
+echo ""
+echo -n "Please enter wifi password : "
+read wifipass
+echo ""
+
+#config wifi 2.4g
+uci del wireless.radio0.htmode
+uci set wireless.radio0.cell_density='0'
+uci set wireless.default_radio0.ssid=$ssid
+uci set wireless.default_radio0.encryption='sae-mixed'
+uci set wireless.default_radio0.key=$wifipass
+uci set wireless.default_radio0.ocv='0'
+
+#config wifi 5g
+uci set wireless.radio1.cell_density='0'
+uci set wireless.default_radio1.ssid=$ssid
+uci set wireless.default_radio1.encryption='sae-mixed'
+uci set wireless.default_radio1.key=$wifipass
+uci set wireless.default_radio1.ocv='0'
+
+
+#active wifis
+uci set wireless.radio0.disabled='0'
+uci set wireless.radio1.disabled='0'
+uci commit wireless
+wifi reload
+
+
+uci set network.lan.ipaddr='192.168.40.1'
