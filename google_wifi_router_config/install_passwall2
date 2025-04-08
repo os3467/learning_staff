@@ -34,27 +34,6 @@ opkg install luci-app-passwall2
 echo ""
 echo "Done"
 echo ""
-sleep 5
-
-uci del passwall2.cfg065fd7.show_node_info
-uci del passwall2.myshunt
-
-uci del passwall2.myshunt.DirectGame
-uci del passwall2.DirectGame
-uci del passwall2.myshunt.ProxyGame
-uci del passwall2.ProxyGame
-uci del passwall2.myshunt.Direct
-uci del passwall2.Direct
-uci del passwall2.myshunt.GooglePlay
-uci del passwall2.GooglePlay
-uci del passwall2.Netflix
-uci del passwall2.OpenAI
-uci del passwall2.myshunt.Proxy
-uci del passwall2.Proxy
-uci del passwall2.myshunt.China
-uci del passwall2.China
-uci del passwall2.myshunt.QUIC
-uci del passwall2.QUIC
-uci del passwall2.UDP
+sleep 3
 
 reboot
