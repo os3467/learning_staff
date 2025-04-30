@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "Let's change password"
+echo ""
+echo ""
+sudo passwd
 echo ""
 echo ""
 echo -n "Please Enter Wifi name (ssid) : "
