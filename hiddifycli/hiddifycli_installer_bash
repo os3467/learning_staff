@@ -22,10 +22,10 @@ sleep 2
 sudo mv HiddifyCli /usr/bin/
 chmod +x /usr/bin/HiddifyCli
 echo ""
-echo ""
 touch server.txt
 echo "sudo HiddifyCli run -c ./server.txt -d ./config.json" > bash_start
 echo "Done"
+echo ""
 echo ""
 sleep 2
 echo "Now put your vless or vmess server link into server.txt and run bash_start using bash"
