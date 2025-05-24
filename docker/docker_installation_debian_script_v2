@@ -1,0 +1,7 @@
+sudo apt update
+sudo apt install curl -y
+curl https://get.docker.com > docker_installation
+bash docker_installation
+sudo usermod -aG docker $USER && newgrp docker
+rm docker_installation
+docker --version
