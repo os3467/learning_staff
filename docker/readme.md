@@ -1,6 +1,6 @@
-Hi
+# Installing Docker manually :
 
-# Add Docker's official GPG key:
+### Add Docker's official GPG key:
 ```
 sudo apt-get update &&
 sudo apt-get install ca-certificates curl &&
@@ -9,7 +9,7 @@ sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyring
 sudo chmod a+r /etc/apt/keyrings/docker.asc
 ```
 
-## Add the repository to Apt sources:
+### Add the repository to Apt sources:
 ```
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
