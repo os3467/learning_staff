@@ -1,39 +1,18 @@
-!#/bin/bash
-echo ""
-echo "Installing tar"
-echo ""
+#!/bin/bash
+echo -e "\nInstalling tar\n"
 sudo apt install tar -y
-sleep 2
-echo ""
-echo "Downloading HiddifyCli from Github"
-echo ""
-sleep 2
+echo -e "\nDownloading HiddifyCli from Github\n"
 wget https://github.com/hiddify/hiddify-core/releases/download/v3.1.8/hiddify-cli-linux-amd64.tar.gz
-echo ""
-echo "Extracting from tar.gz"
-sleep 2
-echo ""
+echo -e "\nExtracting from tar.gz\n"
 tar -xvzf hiddify-cli-linux-amd64.tar.gz
 rm hiddify-cli-linux-amd64.tar.gz
-echo ""
-echo "Moving HiddifyCli to /usr/bin"
-echo ""
-sleep 2
+echo -e "\nMoving HiddifyCli to /usr/bin\n"
 sudo mv HiddifyCli /usr/bin/
 chmod +x /usr/bin/HiddifyCli
-echo ""
 touch server.txt
 echo "sudo HiddifyCli run -c ./server.txt -d ./config.json" > bash_start
-echo "Done"
-echo ""
-echo ""
+echo -e "\nDone\n\n"
 sleep 2
-echo "Now put your vless or vmess server link into server.txt and run bash_start using bash"
-echo ""
-echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+echo -e "Now put your vless or vmess server link into server.txt and run bash_start using bash\n"
+echo -e "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"
 sleep 6
-echo ""
-
-
-
-
