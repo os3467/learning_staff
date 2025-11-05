@@ -1,6 +1,15 @@
-1 - place your server into server.txt
+# Hiddify Cli
 
-2 - run hiddifycli_installer_bash in bash
+Step 1: Run installer.sh 
+```
+sudo bash installer.sh
+```
 
-3 - after that there will be a bash_start file that you can run it in bash every time you need hiddify.
-"enjoy"
+Step 2: Place your xray server inside server.txt file (only one server)
+
+Step 3: Run vpn.sh in your terminal to activate hiddify.
+```
+./vpn.sh
+```
+
+"enjoy :)"
